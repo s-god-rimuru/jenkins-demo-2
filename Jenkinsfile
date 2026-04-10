@@ -11,7 +11,7 @@ pipeline{
 			}
 		}
 		stage('Docker Bulid'){
-			step{
+			steps{
 				script{
 					if (fileExist('Dockerfile')){
 						sh 'docker build -t ${env.DOCKER_IMAGE} .'
@@ -23,7 +23,7 @@ pipeline{
 		}
 	
 		stage('Docker Run'){
-			step{
+			steps{
 				sh "docker run --rm ${$env.DOCKER_IMAGE}"
 			}
 		}
