@@ -13,7 +13,7 @@ pipeline{
 		stage('Docker Bulid'){
 			step{
 				script{
-					if (fileExist('Dockerfile)){
+					if (fileExist('Dockerfile')){
 						sh 'docker build -t ${env.DOCKER_IMAGE} .'
 					}else{
 						error "Dockerfile not found in the workspace"	
